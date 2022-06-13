@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('index') }}
         </h2>
     </x-slot>
 
@@ -12,7 +12,17 @@
                     <x-plantilla>
                         Examen
 
+                        {{$reservas}}/
 
+@foreach ($reservas as $reserva)
+ 
+{{$reserva}}/
+
+codigo vuelo:{{$reserva->vuelo->codigo}}/
+aeropuerto salida:{{$reserva->vuelo->aeropueto->nombre}}/
+Pazas:{{$reserva->plazas}}/
+precio:{{$reserva->vuelo->precio}}/
+@endforeach
 
                         
                     </x-plantilla>
