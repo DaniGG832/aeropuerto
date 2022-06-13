@@ -16,7 +16,7 @@ class Vuelo extends Model
      */
     public function aeropuertoSalida()
     {
-        return $this->belongsTo(User::class, 'salida_id');
+        return $this->belongsTo(Aeropuerto::class, 'salida_id');
     }
 
     /**
@@ -41,5 +41,15 @@ class Vuelo extends Model
     public function companias()
     {
         return $this->belongsTo(Compania::class);
+    }
+
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class);
     }
 }

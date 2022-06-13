@@ -13,8 +13,32 @@
                         Examen
 
 
+                        <form action="{{ route('reservas.store', []) }}" method="post">
 
-                        
+                            @csrf
+                            @method('post')
+
+                            vuelo:
+<br>
+                            @foreach ($vuelos as $vuelo)
+                                <input type="radio" id="{{$vuelo->id}}" name="vuelo_id" value="{{$vuelo->id}}">
+                                <label for="{{$vuelo->id}}"> {{ $vuelo->codigo . '/sale de:' . $vuelo->aeropuertoSalida->ciudad }}</label><br>
+                            @endforeach
+<br>
+                            <label for="">plazas</label>
+                            <input type="text" name="plazas">
+
+
+
+
+                            
+<br>
+<button type="submit">enviar</button>
+
+                        </form>
+
+
+
                     </x-plantilla>
                 </div>
             </div>

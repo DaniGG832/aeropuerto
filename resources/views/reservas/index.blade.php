@@ -24,6 +24,12 @@ Pazas:{{$reserva->plazas}}/
 precio:{{$reserva->vuelo->precio}}/
 @endforeach
 
+
+<br>
+<br>
+<br>
+
+<a href="{{route('reservas.create')}}">Reservar vuelo</a>
                         
                     </x-plantilla>
                 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreReservaRequest;
 use App\Http\Requests\UpdateReservaRequest;
 use App\Models\Reserva;
+use App\Models\Vuelo;
 use Illuminate\Support\Facades\Auth;
 
 class ReservaController extends Controller
@@ -31,7 +32,18 @@ class ReservaController extends Controller
      */
     public function create()
     {
-        //
+
+        //$vuelos = Vuelo::with('reservas')->get();
+        $vuelos = Vuelo::with('reservas')->withsum('reservas','plazas')->get();
+
+        //return $vuelos;
+        
+        $reserva = new Reserva();
+
+        return view('reservas.create', 
+            ['reserva' =>$reserva,
+            'vuelos'=>$vuelos
+        ]);
     }
 
     /**
@@ -42,7 +54,7 @@ class ReservaController extends Controller
      */
     public function store(StoreReservaRequest $request)
     {
-        //
+        return $request->validated();
     }
 
     /**
