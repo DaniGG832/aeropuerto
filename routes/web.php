@@ -27,4 +27,7 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function () {
     
    Route::resource('reservas', ReservaController::class);
+
+   Route::post('/reservas/confirmacion',[ReservaController::class,'confirmacion'])->name('reservas.confirmacion');
+
 });

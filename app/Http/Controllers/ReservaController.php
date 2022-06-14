@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreConfirmacionRequest;
+
+
 use App\Http\Requests\StoreReservaRequest;
 use App\Http\Requests\UpdateReservaRequest;
 use App\Models\Reserva;
@@ -55,6 +58,29 @@ class ReservaController extends Controller
     public function store(StoreReservaRequest $request)
     {
         return $request->validated();
+
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreReservaRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function confirmacion(StoreConfirmacionRequest $request)
+    {
+
+        $datos = $request ->validated() ;
+       
+        $vuelo = Vuelo::find($datos['vuelo_id']);
+
+        //dd($vuelo->aeropuertoSalida->ciudad);
+
+        $pazasLibres =$vuelo->plazas_totales- Reserva::where('vuelo_id',$datos['vuelo_id'])->sum('plazas');
+
+        //return($pazasLibres);
+        
+        return view('reservas.confirmacion',compact('datos','vuelo','pazasLibres'));
+        
     }
 
     /**

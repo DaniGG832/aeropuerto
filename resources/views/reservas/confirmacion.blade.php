@@ -13,22 +13,21 @@
                         Examen
 
 
-                        <form action="{{ route('reservas.confirmacion',[]) }}" method="post">
+                        <form action="{{ route('reservas.store',[]) }}" method="post">
 
                             @csrf
                             @method('post')
 
-                            selecciona el vuelo:
-<br>
-                            @foreach ($vuelos as $vuelo)
-                                <input type="radio" id="{{$vuelo->id}}" name="vuelo_id" value="{{$vuelo->id}}">
-                                <label for="{{$vuelo->id}}"> {{ $vuelo->codigo . '/sale de:' . $vuelo->aeropuertoSalida->ciudad }}</label><br>
-                            @endforeach
-<br>
+                            vuelo:{{$vuelo->aeropuertoSalida->ciudad}}
+                            <br>                            
+
+                           plazas libres:  {{$pazasLibres}},
+                              
                            
 <br>
+                            <label for="">plazas</label>
+                            <input type="number" min="1"  max="{{$pazasLibres}}" name="plazas">
 
-                            
 
 
 
