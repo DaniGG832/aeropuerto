@@ -12,16 +12,21 @@
                     <x-plantilla>
                         Examen
 
-                        {{$reservas}}/
+                        
+<br>
+<br>
 
 @foreach ($reservas as $reserva)
  
-{{$reserva}}/
+{{-- {{$reserva}}/ --}}
 
-codigo vuelo:{{$reserva->vuelo->codigo}}/
-aeropuerto salida:{{$reserva->vuelo->aeropueto->nombre}}/
-Pazas:{{$reserva->plazas}}/
-precio:{{$reserva->vuelo->precio}}/
+codigo vuelo:{{$reserva->vuelo->codigo}} /
+aeropuerto salida:{{$reserva->vuelo->aeropuertoSalida->nombre}} / 
+Pazas:{{$reserva->plazas}} /
+precio persona:{{$reserva->vuelo->precio}} € /
+Precio total :{{$reserva->vuelo->precio*$reserva->plazas}} € /
+
+<br>
 @endforeach
 
 

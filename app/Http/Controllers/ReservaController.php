@@ -57,7 +57,20 @@ class ReservaController extends Controller
      */
     public function store(StoreReservaRequest $request)
     {
-        return $request->validated();
+
+        
+        $reserva = new Reserva();
+        
+        $reserva->vuelo_id=$request->validated()['vuelo_id'];
+        $reserva->user_id = Auth::id();
+        $reserva->plazas=$request->validated()['plazas'];
+        
+        //return $request->validated();
+        
+        $reserva->save(); 
+
+        return redirect()->route('reservas.index')->with('success','reserva creada');
+
 
     }
     /**
@@ -69,6 +82,7 @@ class ReservaController extends Controller
     public function confirmacion(StoreConfirmacionRequest $request)
     {
 
+        
         $datos = $request ->validated() ;
        
         $vuelo = Vuelo::find($datos['vuelo_id']);

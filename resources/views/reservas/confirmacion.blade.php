@@ -11,9 +11,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <x-plantilla>
                         Examen
+{{$vuelo}}
 
-
-                        <form action="{{ route('reservas.store',[]) }}" method="post">
+                        <form action="{{ route('reservas.store',$vuelo) }}" method="post">
 
                             @csrf
                             @method('post')
@@ -22,8 +22,9 @@
                             <br>                            
 
                            plazas libres:  {{$pazasLibres}},
-                              
-                           
+                              <br>
+                          
+                            <input type="number"  name="vuelo_id" value="{{$vuelo->id}}" readonly {{-- hidden --}}>
 <br>
                             <label for="">plazas</label>
                             <input type="number" min="1"  max="{{$pazasLibres}}" name="plazas">

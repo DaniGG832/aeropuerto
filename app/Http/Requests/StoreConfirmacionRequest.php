@@ -25,6 +25,7 @@ class StoreConfirmacionRequest extends FormRequest
     {
         return [
             'vuelo_id'=>'required',
+            //'plazas'=>'required',
            
         ];
     }
