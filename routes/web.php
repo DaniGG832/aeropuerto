@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\VueloController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +31,13 @@ Route::middleware(['auth'])->group(function () {
 
    Route::post('/reservas/confirmacion',[ReservaController::class,'confirmacion'])->name('reservas.confirmacion');
 
+   
 });
+
+
+Route::resource('vuelos',VueloController::class)->middleware(['auth', 'can:solo-admin']);
+
+
+
+//Route::resource('vuelos', VueloController::class)
+//    ->middleware(['auth', 'can:solo-admin']);

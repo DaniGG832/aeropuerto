@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <x-plantilla>
                         Examen
-{{$vuelo}}
+{{-- {{$vuelo}} --}}
 
                         <form action="{{ route('reservas.store',$vuelo) }}" method="post">
 
@@ -30,7 +30,7 @@
                             <input type="number" min="1"  max="{{$pazasLibres}}" name="plazas">
 
 
-
+<br>
 
                             
 <br>

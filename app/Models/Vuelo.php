@@ -9,6 +9,8 @@ class Vuelo extends Model
 {
     use HasFactory;
 
+    protected $guarded =[];
+
     /**
      * Get the user that owns the Vuelo
      *

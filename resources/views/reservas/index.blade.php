@@ -27,6 +27,7 @@ precio persona:{{$reserva->vuelo->precio}} € /
 Precio total :{{$reserva->vuelo->precio*$reserva->plazas}} € /
 
 <br>
+<br>
 @endforeach
 
 
