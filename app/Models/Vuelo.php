@@ -40,7 +40,7 @@ class Vuelo extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function companias()
+    public function compania()
     {
         return $this->belongsTo(Compania::class);
     }
@@ -54,4 +54,6 @@ class Vuelo extends Model
     {
         return $this->hasMany(Reserva::class);
     }
+
+    
 }

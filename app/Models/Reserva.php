@@ -9,6 +9,8 @@ class Reserva extends Model
 {
     use HasFactory;
 
+    protected $table ='reservas';
+
     /**
      * Get the user that owns the Reserva
      *

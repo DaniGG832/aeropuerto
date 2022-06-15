@@ -16,6 +16,12 @@
                 </div>
             @endif
 
+            @if (session()->has('mensage'))
+                <div class="bg-blue-100 rounded-lg p-4 mt-4 mb-4 text-sm text-blue-700"
+                    role="alert">
+                    {{ session('mensage') }}
+                </div>
+            @endif
             {{ $slot }}
         </div>
     </div>

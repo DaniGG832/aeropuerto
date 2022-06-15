@@ -9,6 +9,8 @@ class Compania extends Model
 {
     use HasFactory;
 
+
+    protected $table='companias';
     /**
      * Get all of the comments for the Compania
      *

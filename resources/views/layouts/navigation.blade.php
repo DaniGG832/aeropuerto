@@ -16,9 +16,16 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('reservas.index')" :active="request()->routeIs('reservas.index')">
                         {{ __('Reservas') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('vuelos.index')" :active="request()->routeIs('vuelos.index')">
+                        {{ __('vuelos') }}
                     </x-nav-link>
                 </div>
             </div>

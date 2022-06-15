@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use SebastianBergmann\Diff\Diff;
 
 class StoreVueloRequest extends FormRequest
 {
@@ -24,7 +25,17 @@ class StoreVueloRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'llegada'=>'after:salida',
+            'llegada_id'=>'different:salida_id',
+            'codigo'=>'required',
+            'salida_id'=>'required',
+            'llegada_id'=>'required',
+            'compania_id'=>'required',
+            'plazas_totales'=>'required',
+            'precio'=>'required',
+            'salida'=>'required',
+            'llegada'=>'required'
+            
         ];
     }
 }

@@ -29,6 +29,14 @@
               llegada
               <br>
               <input type="datetime-local" name="llegada" placeholder="fecha salida"> <br>
+              @error('llegada')
+              <p class="text-red-500 text-sm mt-1">
+                {{ $message }}
+              </p>
+            @enderror
+            <br>
+              
+              
               aeropuerto salida
               <select name="salida_id" id="">
                 @foreach ($aeropuertos as $aeropuerto)
@@ -36,6 +44,11 @@
                 @endforeach
 
               </select>
+              @error('nombre')
+              <p class="text-red-500 text-sm mt-1">
+                {{ $message }}
+              </p>
+            @enderror
               <br>
 
               aeropuerto llegada
@@ -45,10 +58,15 @@
                 @endforeach
 
               </select>
+              @error('llegada_id')
+              <p class="text-red-500 text-sm mt-1">
+                {{ $message }}
+              </p>
+            @enderror
               <br>
 
               compañia
-              {{ $companias }}
+              
               <select name="compania_id" id="">
                 @foreach ($companias as $compania)
                   <option value="{{ $compania->id }}">{{ $compania->nombre }}</option>

@@ -20,7 +20,7 @@ class VueloController extends Controller
         
         $vuelos = Vuelo::with('reservas')->get();
 
-        return $vuelos;
+        return view('vuelos.index',compact('vuelos'));
     }
 
     /**
@@ -45,12 +45,19 @@ class VueloController extends Controller
      */
     public function store(StoreVueloRequest $request)
     {
-        $vuelo = new Vuelo($request->all());
+
+        //return $request->validated();
+        
+
+        $vuelo = new Vuelo($request->validated());
 
         //return $vuelo;
         $vuelo->save();
 
-        return back();
+        
+        return redirect()->route('vuelos.index')->with('mensage','vuelo creado correctamente');
+
+        
 
     }
 
